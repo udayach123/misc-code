@@ -1,5 +1,5 @@
 - name: Tool Setup
-  hosts: local
+  hosts: all
   become: true
 
   vars:
