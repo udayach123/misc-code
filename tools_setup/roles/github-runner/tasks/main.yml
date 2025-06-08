@@ -9,22 +9,22 @@
     name: docker-ce
     state: installed
 
-#- name: Install Python 3.12 and pip using dnf
-#  ansible.builtin.dnf:
-#    name:
-#      - python3.12
-#      - python3.12-pip
-#    state: present
-#
-#- name: Upgrade pip for Python 3.12
-#  ansible.builtin.command: python3.12 -m pip install --upgrade pip
-#
-#- name: Install Python packages (hvac and ansible) for Python 3.12
-#  ansible.builtin.pip:
-#    name:
-#      - hvac
-#      - ansible
-#    executable: python3.12 -m pip
+- name: Install Python 3.12 and pip using dnf
+  ansible.builtin.dnf:
+    name:
+      - python3.12
+      - python3.12-pip
+    state: present
+
+- name: Upgrade pip for Python 3.12
+  ansible.builtin.command: python3.12 -m pip install --upgrade pip
+
+- name: Install Python packages (hvac and ansible) for Python 3.12
+  ansible.builtin.pip:
+    name:
+      - hvac
+      - ansible
+    executable: python3.12 -m pip
 
 - name: Start Docker
   ansible.builtin.systemd_service:
