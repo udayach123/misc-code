@@ -25,8 +25,11 @@
   ansible.builtin.command: python3.12 -m pip install --upgrade pip
 
 - name: Install Python packages (hvac and ansible) for Python 3.12
-  ansible.builtin.dnf: python3.12 -m pip install hvac ansible
-  state: present
+  ansible.builtin.pip:
+    name:
+      - hvac
+      - ansible
+    executable: python3.12 -m pip
 
 - name: Start Docker
   ansible.builtin.systemd_service:
