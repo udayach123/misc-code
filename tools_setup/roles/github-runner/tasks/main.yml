@@ -16,6 +16,11 @@
       - python3.12-pip
     state: present
 
+- name: Ensure pip is available for Python 3.12
+  ansible.builtin.command: python3.12 -m ensurepip --upgrade
+  args:
+    creates: /usr/local/lib/python3.12/site-packages/pip
+
 - name: Upgrade pip for Python 3.12
   ansible.builtin.command: python3.12 -m pip install --upgrade pip
 
@@ -25,6 +30,7 @@
       - hvac
       - ansible
     executable: python3.12 -m pip
+
 
 - name: Start Docker
   ansible.builtin.systemd_service:
