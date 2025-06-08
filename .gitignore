@@ -1,0 +1,8 @@
+/vault-secrets/terraform.exe
+/vault-secrets/.terraform/terraform.tfstate
+/vault-secrets/.terraform/providers/registry.terraform.io/hashicorp/azurerm/4.32.0/windows_386/terraform-provider-azurerm_v4.32.0_x5.exe
+/vault-secrets/.terraform/providers/registry.terraform.io/hashicorp/vault/5.0.0/windows_386/terraform-provider-vault_v5.0.0_x5.exe
+/vault-secrets/.terraform.lock.hcl
+/vault-secrets/errored.tfstate
+/vault-secrets/.terraform/providers/registry.terraform.io/hashicorp/azurerm/4.32.0/windows_386/LICENSE.txt
+/vault-secrets/.terraform/providers/registry.terraform.io/hashicorp/vault/5.0.0/windows_386/LICENSE.txt
