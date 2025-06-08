@@ -43,6 +43,7 @@
     env:
       ORG: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/github-runner:ORG token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
       TOKEN: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/github-runner:TOKEN token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
+      name: "{{ item }}"
   loop:
     - runner-1
     - runner-2
