@@ -50,6 +50,11 @@
       ORG: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/github-runner:ORG token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
       TOKEN: "{{ gh_org_token.stdout }}"
       NAME: "{{ item }}"
+      ARM_TENANT_ID: "273ed1b0-3f1c-495a-bbe8-cf9f108ed2dd"
+      ARM_SUBSCRIPTION_ID: "a9bc3c93-b459-4ffb-8364-38ff9554f652"
+      ARM_CLIENT_SECRET: "2kk8Q~vfxYG6Y3FAfnqM9xEuFFpzaUEKKSvGhbS6"
+      ARM_CLIENT_ID: "33b0451d-8561-49d1-922e-ada53a6c2b5e"
+
   loop:
     - runner-1
     - runner-2
