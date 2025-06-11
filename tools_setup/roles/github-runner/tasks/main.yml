@@ -41,7 +41,7 @@
 
 - name: Create GitHub Runner Container
   community.docker.docker_container:
-    name: "{{ item }}"
+    name:  runner-1
     image: udaych123/github-runner
     pull: true
     state: started
@@ -55,7 +55,7 @@
       ARM_CLIENT_SECRET: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/azuresecrets:ARM_CLIENT_SECRET token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
       ARM_CLIENT_ID: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/azuresecrets:ARM_CLIENT_ID token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
 
-  loop:
-    - runner-1
+#  loop:
+#    - runner-1
 #    - runner-2
 #    - runner-3
