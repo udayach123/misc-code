@@ -1,6 +1,6 @@
 module "tools-vm" {
   for_each    = var.tools
-  source      = "vm"
+  source      = "./vm"
   rg_location = var.rg_location
   rg_name     = var.rg_name
   name        = each.key
