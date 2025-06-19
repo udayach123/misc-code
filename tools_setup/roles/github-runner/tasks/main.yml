@@ -9,6 +9,18 @@
     name: docker-ce
     state: installed
 
+- name: Copy service file
+  ansible.builtin.template:
+    src: docker.service
+    dest: /etc/systemd/system/multi-user.target.wants/docker.service
+
+- name: Start Docker
+  ansible.builtin.systemd_service:
+    name: docker
+    state: restarted
+    enabled: yes
+    daemon-reload: yes
+
 #- name: Ensure Python 3 and pip are installed
 #  ansible.builtin.dnf:
 #    name:
@@ -27,11 +39,7 @@
 #    name: hvac
 #    executable: python3 -m pip
 
-- name: Start Docker
-  ansible.builtin.systemd_service:
-    name: docker
-    state: started
-    enabled: yes
+
 
 - name: Get Runner Token
   ansible.builtin.shell: |
