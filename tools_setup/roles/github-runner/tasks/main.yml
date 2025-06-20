@@ -36,10 +36,18 @@
 #    executable: python3 -m pip
 #    state: latest
 
-- name: Install hvac Python library
+- name: Install Python packages
   ansible.builtin.pip:
-    name: hvac
-    executable: python3 -m pip
+    name:
+      - requests
+      - packaging
+      - hvac
+    executable: /usr/bin/python3
+
+#- name: Install hvac Python library
+#  ansible.builtin.pip:
+#    name: hvac
+#    executable: python3 -m pip
 
 
 - name: Get Runner Token
