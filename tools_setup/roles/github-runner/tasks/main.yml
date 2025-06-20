@@ -23,23 +23,23 @@
     enabled: yes
     daemon-reload: yes
 
-#- name: Ensure Python 3 and pip are installed
-#  ansible.builtin.dnf:
-#    name:
-#      - python3
-#      - python3-pip
-#    state: present
-#
-#- name: Upgrade pip
-#  ansible.builtin.pip:
-#    name: pip
-#    executable: python3 -m pip
-#    state: latest
-#
-#- name: Install hvac Python library
-#  ansible.builtin.pip:
-#    name: hvac
-#    executable: python3 -m pip
+- name: Ensure Python 3 and pip are installed
+  ansible.builtin.dnf:
+    name:
+      - python3
+      - python3-pip
+    state: present
+
+- name: Upgrade pip
+  ansible.builtin.pip:
+    name: pip
+    executable: python3 -m pip
+    state: latest
+
+- name: Install hvac Python library
+  ansible.builtin.pip:
+    name: hvac
+    executable: python3 -m pip
 
 
 
