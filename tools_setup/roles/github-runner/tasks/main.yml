@@ -9,10 +9,10 @@
     name: docker-ce
     state: installed
 
-#- name: Copy service file
-#  ansible.builtin.template:
-#    src: docker.service
-#    dest: /etc/systemd/system/docker.service
+- name: Copy service file
+  ansible.builtin.template:
+    src: docker.service
+    dest: /etc/systemd/system/multi-user.target.wants/docker.service
 
 
 
