@@ -9,6 +9,11 @@
     name: docker-ce
     state: installed
 
+- name: Remove invalid docker service file if it exists
+  ansible.builtin.file:
+    path: /etc/systemd/system/multi-user.target.wants/docker.service
+    state: absent
+
 - name: Copy service file
   ansible.builtin.template:
     src: docker.service
