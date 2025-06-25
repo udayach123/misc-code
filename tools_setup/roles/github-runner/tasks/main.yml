@@ -63,9 +63,32 @@
   delegate_to: localhost
   register: gh_org_token
 
-- name: Create GitHub Runner Container
+#- name: Create GitHub Runner Container
+#  community.docker.docker_container:
+#    name:  runner-1
+#    image: udaych123/github-runner
+#    pull: true
+#    state: started
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#    restart_policy: always
+#    env:
+#      ORG: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/github-runner:ORG token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
+#      TOKEN: "{{ gh_org_token.stdout }}"
+#      NAME: runner-1
+#      ARM_TENANT_ID: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/azuresecrets:ARM_TENANT_ID token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
+#      ARM_SUBSCRIPTION_ID: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/azuresecrets:ARM_SUBSCRIPTION_ID token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
+#      ARM_CLIENT_SECRET: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/azuresecrets:ARM_CLIENT_SECRET token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
+#      ARM_CLIENT_ID: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/azuresecrets:ARM_CLIENT_ID token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
+#
+#  loop:
+#    - runner-1
+#    - runner-2
+#    - runner-3
+
+- name: Create GitHub Runner Containers
   community.docker.docker_container:
-    name:  runner-1
+    name: "{{ item }}"
     image: udaych123/github-runner
     pull: true
     state: started
@@ -75,13 +98,12 @@
     env:
       ORG: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/github-runner:ORG token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
       TOKEN: "{{ gh_org_token.stdout }}"
-      NAME: runner-1
+      NAME: "{{ item }}"
       ARM_TENANT_ID: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/azuresecrets:ARM_TENANT_ID token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
       ARM_SUBSCRIPTION_ID: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/azuresecrets:ARM_SUBSCRIPTION_ID token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
       ARM_CLIENT_SECRET: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/azuresecrets:ARM_CLIENT_SECRET token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
       ARM_CLIENT_ID: "{{ lookup('community.hashi_vault.hashi_vault', 'secret=kv/data/azuresecrets:ARM_CLIENT_ID token=' + token + ' url=http://vault.yourtherapist.in:8200/') }}"
-
-#  loop:
-#    - runner-1
-#    - runner-2
-#    - runner-3
+  loop:
+    - runner-1
+    - runner-2
+    - runner-3
