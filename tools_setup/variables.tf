@@ -9,7 +9,7 @@ variable "tools" {
     # }
     elk-stack = {
       vm_size = "Standard_E2bds_v5"
-      # spot    = "true"
+      spot    = "true"
     }
   }
 }
@@ -22,6 +22,5 @@ variable "rg_name" {
 variable "rg_location" {
   default = "UK West"
 }
-variable "token" {}
 
 
