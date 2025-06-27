@@ -1,2 +1,7 @@
-ansible-playbook -i vault.yourtherapist.in, -e ansible_user=devops18 -e ansible_password=Passw0rd@1234 tool_setup.yml -e tool_name=elk -e token=hvs.vDmeXxoN570Y46tfqceaShiB -e ansible_python_interpreter=/usr/bin/python3
+elk commands:
+
+ansible-playbook -i elk-stack-new.yourtherapist.in, -e ansible_user=devops18 -e ansible_password=Passw0rd@1234 tool_setup.yml -e tool_name=elk -e token=hvs.vDmeXxoN570Y46tfqceaShiB -e ansible_python_interpreter=/usr/bin/python3
+sudo /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+
+to start github runner:
 ansible-playbook -i vault.yourtherapist.in, -e ansible_user=devops18 -e ansible_password=Passw0rd@1234 tool_setup.yml -e tool_name=github-runner -e token=hvs.vDmeXxoN570Y46tfqceaShiB -e ansible_python_interpreter=/usr/bin/python3
