@@ -13,7 +13,7 @@ variable "tools" {
     }
   }
 }
-
+#
 
 variable "rg_name" {
   default = "golive"
