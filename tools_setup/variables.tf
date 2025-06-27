@@ -8,7 +8,7 @@ variable "tools" {
     #   spot    = "false"
     # }
     elk-stack = {
-      vm_size = "Standard_B2s"
+      vm_size = "Standard_E2bds_v5"
       # spot    = "true"
     }
   }
