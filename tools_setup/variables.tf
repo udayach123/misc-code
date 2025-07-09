@@ -7,10 +7,10 @@ variable "tools" {
     #   vm_size = "Standard_B2s"
     #   spot    = "false"
     # }
-    # elk-stack-new = {
-    #   vm_size = "Standard_E2bds_v5"
-    #   spot    = "true"
-  #   }
+    elk-stack-new = {
+      vm_size = "Standard_E2bds_v5"
+      spot    = "true"
+    }
    }
 }
 #
